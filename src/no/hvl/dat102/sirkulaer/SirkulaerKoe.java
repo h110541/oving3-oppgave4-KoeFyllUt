@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package no.hvl.dat102.sirkulaer;
 import no.hvl.dat102.adt.KoeADT;
@@ -7,7 +7,7 @@ import no.hvl.dat102.exception.EmptyCollectionException;
 /**
  * @author Ole Olsen
  * @param <T>
- * 
+ *
  */
 public class SirkulaerKoe<T> implements KoeADT<T> {
 
@@ -29,7 +29,7 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 			utvid();
 
 		//TODO
-		
+
 	}
 
 	public T utKoe()  {
@@ -43,7 +43,7 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 	public T foerste()  {
 		if (erTom())
 			throw new EmptyCollectionException("koe");
-		
+
 		T resultat = koe[foran];
 		return resultat;
 	}
@@ -59,7 +59,7 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 	private void utvid() {
 		T[] hjelpetabell = (T[]) (new Object[koe.length * 2]);
 		//TODO
-		
+
 	}
 }// class
 

@@ -4,7 +4,7 @@ import no.hvl.dat102.adt.KoeADT;
 import no.hvl.dat102.exception.EmptyCollectionException;
 
 //********************************************************************
-// 
+//
 //  Representerer en samling kø implementer vha kjedet struktur
 //********************************************************************
 
@@ -26,7 +26,14 @@ public class KjedetKoe<T> implements KoeADT<T> {
 	public void innKoe(T element) {
 		LinearNode<T> nyNode = new LinearNode<T>(element);
 
-		//TODO
+		if(erTom()) {
+			foran = nyNode;
+		} else {
+			bak.setNeste(nyNode);
+		}
+
+		bak = nyNode;
+		antall++;
 	}
 
 	/******************************************************************
@@ -36,9 +43,15 @@ public class KjedetKoe<T> implements KoeADT<T> {
 		if (erTom())
 			throw new EmptyCollectionException("koe");
 
-		//TODO
-		return null;
-		
+		T element = foran.getElement();
+		foran = foran.getNeste();
+
+		if(foran == null) {
+			bak = null;
+		}
+
+		antall--;
+		return element;
 	}
 
 	/******************************************************************
@@ -48,9 +61,8 @@ public class KjedetKoe<T> implements KoeADT<T> {
 		if (erTom())
 			throw new EmptyCollectionException("koe");
 
-		//TODO
-		return null;
-		
+		T element = foran.getElement();
+		return element;
 	}
 
 	/******************************************************************

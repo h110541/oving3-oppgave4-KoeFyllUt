@@ -37,8 +37,11 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 		if (erTom())
 			throw new EmptyCollectionException("koe");
 
-	  //TODO
-		return null;
+		T element = koe[foran];
+		koe[foran] = null;
+		foran = (foran + 1) % koe.length;
+		antall--;
+		return element;
 	}
 
 	public T foerste()  {

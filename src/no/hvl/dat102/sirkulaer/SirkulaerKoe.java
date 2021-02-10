@@ -58,8 +58,15 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 
 	private void utvid() {
 		T[] hjelpetabell = (T[]) (new Object[koe.length * 2]);
-		//TODO
 
+		for(int i = 0; i < antall; i++) {
+			hjelpetabell[i] = koe[foran];
+			foran = (foran + 1) % koe.length;
+		}
+
+		foran = 0;
+		bak = antall;
+		koe = hjelpetabell;
 	}
 }// class
 

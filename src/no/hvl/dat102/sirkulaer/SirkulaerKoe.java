@@ -28,8 +28,9 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 		if (antall() == koe.length)
 			utvid();
 
-		//TODO
-
+		koe[bak] = element;
+		bak = (bak + 1) % koe.length;
+		antall++;
 	}
 
 	public T utKoe()  {

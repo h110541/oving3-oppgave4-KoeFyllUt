@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import no.hvl.dat102.exception.EmptyCollectionException;
+
 public abstract class KoeADTTest {
 
 	private KoeADT<Integer> koe;
@@ -144,6 +146,30 @@ public abstract class KoeADTTest {
 
 		koe.innKoe(e4);
 		assertEquals(20, koe.antall());
+	}
+
+	@Test
+	public void testUnntakBlirKastet() {
+		Assertions.assertThrows(EmptyCollectionException.class, () -> {
+			koe.utKoe();
+		});
+
+		Assertions.assertThrows(EmptyCollectionException.class, () -> {
+			koe.foerste();
+		});
+
+		koe.innKoe(e4);
+		koe.innKoe(e1);
+		koe.utKoe();
+		koe.utKoe();
+
+		Assertions.assertThrows(EmptyCollectionException.class, () -> {
+			koe.utKoe();
+		});
+
+		Assertions.assertThrows(EmptyCollectionException.class, () -> {
+			koe.foerste();
+		});
 	}
 
 }
